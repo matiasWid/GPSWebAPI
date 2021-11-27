@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "kEQOIEjChWu594wa9JLmQ7D7inBTLAUGM29e1XFxFTQ=",
+  "Source": "GPSWebAPI",
+  "BasePath": "_content/GPSWebAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
