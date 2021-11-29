@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using GPSWebAPI.Models;
+using System.ComponentModel.DataAnnotations;
 
-namespace GPSWebAPI.DTOs
+namespace GPSWebAPI.DTOs.Vehicle
 {
-    public class VehicleCreationDTO
+    public class VehicleCreationDTO: ModelBase
     {
         private string _PlateNumber = "";
         [StringLength(15)]
@@ -11,7 +12,9 @@ namespace GPSWebAPI.DTOs
             get { return _PlateNumber; }
             set { _PlateNumber = value.ToUpper().Replace(" ", ""); }
         }
-        public string Brand { get; set; }
+        public int? VehicleModelId { get; set; }
+        public int? Year { get; set; }
+        public int? InternalId { get; set; }
 
     }
 }

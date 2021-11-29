@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using GPSWebAPI.DTOs;
+using GPSWebAPI.DTOs.Device;
 using GPSWebAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
@@ -41,7 +42,7 @@ namespace GPSWebAPI.Controllers
         {
             var devices = await _context.Devices
                 .Include(d => d.Vehicle)
-                .FirstOrDefaultAsync(d => d.Id == id && d.Active == true);
+                .FirstOrDefaultAsync(d => d.Id == id);
 
             if (devices == null)
                 return NotFound();
@@ -66,7 +67,7 @@ namespace GPSWebAPI.Controllers
             catch (DbUpdateException dbEx)
             {
                 _logger.LogError(dbEx.Message);
-                return BadRequest("Error al insertar en la base");
+                return BadRequest();
             }
             catch (Exception ex)
             {
@@ -81,7 +82,7 @@ namespace GPSWebAPI.Controllers
         public async Task<ActionResult> Put([FromBody] Device device, int id)
         {
             if (device.Id != id)
-                return BadRequest("El id del dispositivo no coincide con el id de la URL");
+                return BadRequest(_errorMessagesLocalizer["ID_Not_Match"]);
             _context.Update(device);
             await _context.SaveChangesAsync();
             return Ok();

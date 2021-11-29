@@ -4,6 +4,7 @@ using GPSWebAPI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GPSWebAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211127211928_VehicleInternalId")]
+    partial class VehicleInternalId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -112,10 +114,6 @@ namespace GPSWebAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Description")
-                        .IsUnique()
-                        .HasFilter("[Description] IS NOT NULL");
-
                     b.ToTable("VehicleBrands");
                 });
 
@@ -141,10 +139,6 @@ namespace GPSWebAPI.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("Description")
-                        .IsUnique()
-                        .HasFilter("[Description] IS NOT NULL");
 
                     b.HasIndex("VehicleBrandId");
 

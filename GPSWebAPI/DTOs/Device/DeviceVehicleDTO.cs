@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace GPSWebAPI.DTOs
+namespace GPSWebAPI.DTOs.Device
 {
     public class DeviceVehicleDTO
     {

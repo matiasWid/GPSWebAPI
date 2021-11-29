@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using GPSWebAPI.DTOs;
+using GPSWebAPI.DTOs.Vehicle;
 using GPSWebAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -40,7 +41,7 @@ namespace GPSWebAPI.Controllers
         {
             var vehicle = await _context.Vehicles
                 .Include(v => v.Device)
-                .FirstOrDefaultAsync(v => v.Id == id && v.Active == true);
+                .FirstOrDefaultAsync(v => v.Id == id);
 
             if (vehicle == null)
                 return NotFound();

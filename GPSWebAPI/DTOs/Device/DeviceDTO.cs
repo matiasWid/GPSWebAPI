@@ -1,6 +1,6 @@
 ﻿using GPSWebAPI.Models;
 
-namespace GPSWebAPI.DTOs
+namespace GPSWebAPI.DTOs.Device
 {
     public class DeviceDTO: ModelBase
     {
